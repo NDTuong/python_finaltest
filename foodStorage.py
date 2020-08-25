@@ -47,21 +47,32 @@ def check(food_storage, request):
             recipe = json.load(r)
     finally:
         r.close()
-
+    over = {}
     boo = True
-    lacks = []
+    lacks = {}
     count = 0
     for food in request.keys():
         materials = recipe[food][1]
+        not_enough = 0
         for m in materials.keys():
-            food_storage[m]["number"] -= materials[m] * request[food]
-            if food_storage[m]["number"] < 0:
-                food_storage[m]["number"] += materials[m] * request[food]
-                lacks.append({food: request[food]})
+            temp_not_enough = 0
+            number = food_storage[m]["number"]
+            number -= materials[m] * request[food]
+            if number < 0:
+                temp = int(-number / recipe[food][1][m])
+                if temp != int(temp):
+                    temp = int(temp) + 1
+                if not_enough < temp:
+                    not_enough = int(temp)
+                    temp_not_enough = int(temp)
+                if m not in lacks.keys():
+                    lacks[m] = 0
+                lacks[m] += - number
                 boo = False
-                count += request[food]
-                break
-    return boo, lacks, count
+                food_storage[m]["number"] -= materials[m] * (request[food] - temp_not_enough)
+        count += not_enough
+        over[food] = not_enough
+    return boo, over, lacks, count
 
 
 # Update Storage

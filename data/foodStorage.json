@@ -1,23 +1,23 @@
 {
     "banhmy": {
         "price": 1000,
-        "number": 2
+        "number": 10
     },
     "gio": {
         "price": 2500,
-        "number": 16
+        "number": 10
     },
     "xucxich": {
         "price": 4000,
-        "number": 9
+        "number": 10
     },
     "com": {
         "price": 1500,
-        "number": 18
+        "number": 10
     },
     "trung": {
         "price": 1500,
-        "number": 5
+        "number": 10
     },
     "my": {
         "price": 2000,
@@ -25,14 +25,14 @@
     },
     "pate": {
         "price": 3000,
-        "number": 2
+        "number": 10
     },
     "rau": {
         "price": 1000,
-        "number": 4
+        "number": 10
     },
     "cha": {
         "price": 2000,
-        "number": 20
+        "number": 10
     }
 }

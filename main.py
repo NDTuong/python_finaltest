@@ -27,10 +27,11 @@ while True:
         order = request.input_request()
         if order:
             sort_order = request.sort_request_by_profit(order)
-            boo, lacks, count = foodStorage.check(food_storage, sort_order)
+            boo, over, lacks, count = foodStorage.check(food_storage, sort_order)
             foodStorage.update(food_storage)
             if not boo:
-                print(lacks, " is over...")
+                print("lack of food: ", over)
+                print("not enough materials: ", lacks)
                 s = request.suggest(food_storage, count)
                 print("you can choose: ", s, " instead")
             else:
