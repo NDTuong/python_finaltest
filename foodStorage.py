@@ -70,6 +70,8 @@ def check(food_storage, request):
                 lacks[m] += - number
                 boo = False
                 food_storage[m]["number"] -= materials[m] * (request[food] - temp_not_enough)
+            if not_enough == 0:
+                food_storage[m]["number"] -= materials[m] * request[food]
         count += not_enough
         over[food] = not_enough
     return boo, over, lacks, count

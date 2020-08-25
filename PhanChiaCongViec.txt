@@ -1,4 +1,4 @@
 main.py + request.py: Tường
-foodStorage: Đức Anh
+foodStorage.py: Đức Anh ( hàm check() Tường có chỉnh sửa bổ sung)
 recipe.py: Phú
 
